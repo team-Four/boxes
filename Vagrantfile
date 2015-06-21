@@ -72,5 +72,8 @@ Vagrant.configure(2) do |config|
      sudo apt-get install ruby2.2-dev -y
      sudo apt-get install -y git
      sudo apt-get install -y emacs
+     sudo apt-get install -y libxslt-dev libxml2-dev zlib1g-dev
+     sudo gem install nokogiri
+     sudo gem install rails --no-document
   SHELL
- end
+end
