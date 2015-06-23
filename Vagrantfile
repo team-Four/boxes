@@ -67,7 +67,8 @@ Vagrant.configure(2) do |config|
   config.vm.provision "shell", inline: <<-SHELL
      sudo add-apt-repository ppa:git-core/ppa
      sudo add-apt-repository -y ppa:brightbox/ruby-ng
-     sudo apt-get update
+     sudo apt-get update -y
+     sudo apt-get upgrade -y
      sudo apt-get install ruby2.2 -y
      sudo apt-get install ruby2.2-dev -y
      sudo apt-get install -y git
@@ -75,5 +76,6 @@ Vagrant.configure(2) do |config|
      sudo apt-get install -y libxslt-dev libxml2-dev zlib1g-dev
      sudo gem install nokogiri
      sudo gem install rails --no-document
+     sudo apt-get install libsqlite3-dev -y
   SHELL
 end
