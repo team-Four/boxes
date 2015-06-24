@@ -22,7 +22,7 @@ Vagrant.configure(2) do |config|
   # Create a forwarded port mapping which allows access to a specific port
   # within the machine from a port on the host machine. In the example below,
   # accessing "localhost:8080" will access port 80 on the guest machine.
-  # config.vm.network "forwarded_port", guest: 80, host: 8080
+  config.vm.network "forwarded_port", guest: 3000, host: 13000
 
   # Create a private network, which allows host-only access to the machine
   # using a specific IP.
@@ -67,7 +67,8 @@ Vagrant.configure(2) do |config|
   config.vm.provision "shell", inline: <<-SHELL
      sudo add-apt-repository ppa:git-core/ppa
      sudo add-apt-repository -y ppa:brightbox/ruby-ng
-     sudo apt-get update
+     sudo apt-get update -y
+     sudo apt-get upgrade -y
      sudo apt-get install ruby2.2 -y
      sudo apt-get install ruby2.2-dev -y
      sudo apt-get install -y git
@@ -75,5 +76,9 @@ Vagrant.configure(2) do |config|
      sudo apt-get install -y libxslt-dev libxml2-dev zlib1g-dev
      sudo gem install nokogiri
      sudo gem install rails --no-document
+     sudo apt-get install libsqlite3-dev -y
+     sudo apt-get install -y nodejs
+     sudo apt-get install -y libpq-dev
+     wget -O- https://toolbelt.heroku.com/install-ubuntu.sh | sh
   SHELL
 end
